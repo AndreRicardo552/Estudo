@@ -41,6 +41,10 @@ namespace Fundamentos{
                                 { "caminhos", caminho.Executar },
                                 // Avançados
                                 { "Linq", Linq.Executar },
+                                { "Linq - 02", Linq2.Executar },
+                                { "Nullables", Nullables.Executar },
+                                { "Dynamics", Dynamics.Executar },
+                                { "Generics", Generics.Executar },
 
                         });
 
