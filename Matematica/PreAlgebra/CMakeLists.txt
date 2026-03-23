@@ -8,6 +8,8 @@ include_directories(.)
 add_executable(PreAlgebra
         divisor.c
         divisor.h
+        multiplicador.c
+        multiplicador.h
         main.c
         utils/quicksort.h
         utils/quicksort.c

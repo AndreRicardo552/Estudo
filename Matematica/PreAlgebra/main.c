@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "divisor.h"
+#include "multiplicador.h"
 
 int main(){
 
@@ -40,8 +41,22 @@ int main(){
                 break;
             }
             case 2: {
+                multiplos m = {0};
                 printf("Iniciando calculo de multiplicadores\n");
+                printf("Qual numero deseja encontrar os multiplicadores?\n");
+                scanf("%d", &m.n);
+                printf("Quantos Multiplos deseja encontrar?\n");
+                scanf("%d", &m.size);
 
+                multiplicador(&m);
+
+                printf("Todos os multiplos de %d: \n", m.n);
+                for(int i = 0; i < m.size; i++){
+                    printf("%d", m.multiplos[i]);
+                    printf(" ");
+                };
+
+                free(m.multiplos);
                 break;
             }
             case 9:{
