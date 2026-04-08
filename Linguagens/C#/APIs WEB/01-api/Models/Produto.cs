@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace _01_api.Models{
     public class Produto {
@@ -21,6 +22,7 @@ namespace _01_api.Models{
         public float Estoque { get; set; }
         public DateTime DataCadastro { get; set; }
         public int categoriaId { get; set; } // Mapeia para chave estrangeira
+        [JsonIgnore]
         public Categoria? Categoria { get; set; } // Chave de navegação
     }
 }

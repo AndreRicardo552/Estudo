@@ -1,11 +1,13 @@
 using _01_api.Context;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddControllers();
+// Adiciona os controladores
+builder.Services.AddControllers().AddJsonOptions(
+    // Resolve problema da Referencia ciclica
+    options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles); 
 builder.Services.AddOpenApi();
 
 var mySqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -19,6 +21,7 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment()) {
     app.MapOpenApi();
     app.UseSwaggerUI(options => options.SwaggerEndpoint("/openapi/v1.json", "weather api"));
+    app.UseExceptionHandler("/Error");
 }
 
 app.UseHttpsRedirection(); // Redireciona para https
